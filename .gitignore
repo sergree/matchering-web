@@ -6,3 +6,4 @@ desktop.ini
 *.pyc
 *.sqlite3
 migrations/
+Vagrantfile
