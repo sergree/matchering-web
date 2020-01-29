@@ -1,4 +1,5 @@
 .idea
+.vagrant
 .DS_Store
 __pycache__
 desktop.ini
@@ -6,4 +7,6 @@ desktop.ini
 *.pyc
 *.sqlite3
 migrations/
+media/
+
 Vagrantfile
