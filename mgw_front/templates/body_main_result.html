@@ -1,0 +1,50 @@
+{% load static %}
+        <section id="stage-result">
+            <div class="flex">
+                <header>
+                    <h1><span class="accent">Match</span>ering <span class="accent">2.0</span></h1>
+                    <div class="track-box">
+                        <p>Target: <span class="track" id="track-target">...</span></p>
+                        <p>Reference: <span class="track" id="track-reference">...</span></p>
+                        <p class="warning" id="warning">Warning!</p>
+                    </div>
+                </header>
+                <div class="ready-box">
+                    <div class="ready-row">
+                        <div class="ready-cell preview-box">
+                            <h3>Preview</h3>
+                            <div id="preview-player">
+                                <audio id="player-original" loop></audio>
+                                <audio id="player-matchered" loop></audio>
+                                <p class="preview-switch" id="preview-original">Original</p>
+                                <p class="preview-switch" id="preview-matchered">Matchered</p>
+                                <img src="{% static 'images/play.png' %}" alt="Preview" class="preview-control" id="preview-play">
+                                <img src="{% static 'images/pause.png' %}" alt="Preview" class="preview-control" id="preview-pause">
+                            </div>
+                        </div>
+                        <div class="ready-cell download-box">
+                            <h3>Download</h3>
+                            <table class="links-box">
+                                <tr id="wav">
+                                    <td>WAV:</td>
+                                    <td><a href="#" id="result16" download>16-bit</a></td>
+                                    <td><a href="#" id="result24" download>24-bit</a></td>
+                                </tr>
+                            </table>
+                            <p class="bottom-tip">If you like the result, you may:</p>
+                            <a href="https://www.buymeacoffee.com/sergree" target="_blank">
+                                <img src="{% static 'images/coffee.png' %}" alt="Buy Me A Coffee" class="coffee">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="make-another">
+                    <p class="make-another-button" id="another">&#8617; Make Another</p>
+                    <p class="bottom-tip">Keep the:</p>
+                    <div class="make-another-checkbox-container">
+                        <p class="make-another-checkbox" id="make-another-checkbox-target">Target</p>
+                        <p class="make-another-checkbox" id="make-another-checkbox-reference">Reference</p>
+                    </div>
+                </div>
+            </div>
+        </section>

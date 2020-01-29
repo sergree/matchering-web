@@ -1,0 +1,22 @@
+{% load static %}
+    <style>
+        #page-preloader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #020305;
+            z-index: 10;
+        }
+
+        #page-preloader .spinner {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background: url('{% static 'images/spinner.svg' %}') no-repeat 50% 50%;
+            margin: -75px 0 0 -75px;
+        }
+    </style>
