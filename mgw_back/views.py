@@ -26,6 +26,7 @@ from rest_framework.exceptions import ValidationError
 import json
 from datetime import timedelta
 
+from matchering_web.settings import MGW_STORE_DATA_FOR_MINUTES
 from mgw_back.models import MGSession, MGFile
 from mgw_back.serializers import MGSessionSerializer, MGSessionDetailSerializer, MGFileSerializer
 from mgw_back.tasks import process
@@ -56,7 +57,7 @@ class SessionCreate(APIView):
         previous_session.delete()
 
     def remove_old(self):
-        time_threshold = timezone.now() - timedelta(minutes=5)
+        time_threshold = timezone.now() - timedelta(minutes=MGW_STORE_DATA_FOR_MINUTES)
         MGSession.objects.filter(updated__lte=time_threshold).delete()
         MGFile.objects.filter(used__lte=time_threshold).delete()
 
@@ -81,7 +82,8 @@ class SessionCreate(APIView):
                 session.reference.save()
             session.save()
             self.remove_previous(previous_session, keep_target, keep_reference)
-            self.remove_old()
+
+        self.remove_old()
 
         serializer = MGSessionSerializer(session)
         return Response(serializer.data)

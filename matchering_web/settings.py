@@ -73,3 +73,5 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 MEDIA_URL = '/media/'
+
+MGW_STORE_DATA_FOR_MINUTES = 60

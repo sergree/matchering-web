@@ -23,7 +23,7 @@ from mgw_back.utilities import random_str_32
 
 class MGFile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    used = models.DateField(auto_now=True)
+    used = models.DateTimeField(auto_now=True)
     file = models.FileField()
     title = models.CharField(blank=True, max_length=100)
 
