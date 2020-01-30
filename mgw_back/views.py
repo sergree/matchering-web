@@ -34,11 +34,12 @@ from mgw_back.utilities import without_folder
 
 class SessionView(APIView):
     @staticmethod
-    def get_session(token):
+    def get_session(token, raise404=True):
         try:
             return MGSession.objects.get(token=token)
         except MGSession.DoesNotExist:
-            raise Http404
+            if raise404:
+                raise Http404
 
     def get(self, request, token, format=None):
         session = self.get_session(token)
@@ -68,7 +69,7 @@ class SessionCreate(APIView):
         if keep_target and keep_reference:
             raise ValidationError
 
-        previous_session = SessionView.get_session(previous_token) if previous_token else None
+        previous_session = SessionView.get_session(previous_token, raise404=False) if previous_token else None
         session = MGSession.objects.create()
 
         if previous_session:

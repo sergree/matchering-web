@@ -22,4 +22,4 @@ python3 manage.py makemigrations mgw_back
 python3 manage.py migrate
 
 # https://docs.docker.com/config/containers/multi-service_container/
-supervisord -c /usr/src/app/supervisord.conf
+supervisord -c /app/supervisord.conf

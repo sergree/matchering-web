@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_rq',
+    'django_cleanup.apps.CleanupConfig',
     'mgw_back.apps.MgwBackConfig',
     'mgw_front.apps.MgwFrontConfig',
 ]
@@ -45,12 +46,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'matchering_web.wsgi.application'
 
-DB_DIR = os.path.join(BASE_DIR, 'db')
+DATA_DIR = os.path.join(BASE_DIR, 'data')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
     },
 }
 
@@ -70,5 +71,5 @@ TIME_ZONE = 'UTC'
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 MEDIA_URL = '/media/'
