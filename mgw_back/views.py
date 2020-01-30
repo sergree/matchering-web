@@ -17,12 +17,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 from django.http import Http404
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
 from rest_framework.exceptions import ValidationError
 import json
+from datetime import timedelta
 
 from mgw_back.models import MGSession, MGFile
 from mgw_back.serializers import MGSessionSerializer, MGSessionDetailSerializer, MGFileSerializer
@@ -45,16 +47,17 @@ class SessionView(APIView):
 
 
 class SessionCreate(APIView):
-    def delete_unnecessary_files(self, previous_session, keep_target, keep_reference):
-        to_delete = [previous_session.result16, previous_session.result24, previous_session.preview_target,
-                     previous_session.preview_result]
+    def remove_previous(self, previous_session, keep_target, keep_reference):
         if not keep_target:
-            to_delete.append(previous_session.target.file)
+            previous_session.target.delete()
         if not keep_reference:
-            to_delete.append(previous_session.reference.file)
-        for file in to_delete:
-            if file:
-                file.delete(False)
+            previous_session.reference.delete()
+        previous_session.delete()
+
+    def remove_old(self):
+        time_threshold = timezone.now() - timedelta(minutes=5)
+        MGSession.objects.filter(updated__lte=time_threshold).delete()
+        MGFile.objects.filter(used__lte=time_threshold).delete()
 
     def post(self, request, format=None):
         body = json.loads(request.body)
@@ -71,10 +74,13 @@ class SessionCreate(APIView):
         if previous_session:
             if keep_target:
                 session.target = previous_session.target
+                session.target.save()
             if keep_reference:
                 session.reference = previous_session.reference
+                session.reference.save()
             session.save()
-            self.delete_unnecessary_files(previous_session, keep_target, keep_reference)
+            self.remove_previous(previous_session, keep_target, keep_reference)
+            self.remove_old()
 
         serializer = MGSessionSerializer(session)
         return Response(serializer.data)
