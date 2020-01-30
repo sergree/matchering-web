@@ -7,7 +7,6 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY . .
 
 CMD ["./init.sh"]
