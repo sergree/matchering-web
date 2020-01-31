@@ -16,12 +16,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-if [ -z ${SECRET_KEY+x} ]
+file="./.secret_key"
+if [ -f "$file" ]
 then
-    echo "Generating a new SECRET_KEY..."
-    export SECRET_KEY=`date +%s|sha256sum|base64|head -c 50`
-else
     echo "Using an existing SECRET_KEY..."
+else
+    echo "Generating a new SECRET_KEY..."
+    echo `date +%s|sha256sum|base64|head -c 50` > "$file"
 fi
 
 python3 manage.py makemigrations mgw_back
