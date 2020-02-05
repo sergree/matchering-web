@@ -4,7 +4,7 @@
 
 ### Handy Matchering 2.0 Containerized Web Application
 
-Minimal web application for easy and convenient use of the **[Matchering python library][matchering]** in your browser locally using **[Docker]**.
+Minimal web application for easy and convenient use of the **[Matchering python library][Matchering]** in your browser locally using **[Docker]**.
 
 ## Features
 
@@ -12,7 +12,7 @@ Minimal web application for easy and convenient use of the **[Matchering python 
 - Feature #2
 - Feature #3
 
-### Visit **[Matchering main repo][matchering]** to learn more about it!
+### Visit **[Matchering main repo][Matchering]** to learn more about it!
 
 ## Installation and Usage
 
@@ -28,6 +28,6 @@ If our application saved your time or money, you may:
 
 **Thank you!**
 
-[matchering]: https://github.com/sergree/matchering
+[Matchering]: https://github.com/sergree/matchering
 [Docker]: https://www.docker.com/
 [Keep the Privacy]: https://github.com/sergree/matchering/wiki/Keep-the-Privacy
