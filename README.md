@@ -16,7 +16,7 @@ Minimal web application for easy and convenient use of the **[Matchering python 
 
 ## Installation and Usage
 
-Soon...
+Follow **[here](https://github.com/sergree/matchering/tree/master#docker-image---the-easiest-way)** for installation steps.
 
 ## A Coffee
 
