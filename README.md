@@ -12,7 +12,7 @@ Minimal web application for easy and convenient use of the **[Matchering python 
 - File drag-and-drop support
 - Designed and optimized for home and in-house use
 - **WAV 44.1 kHz 16-bit** and **24-bit** results
-- In-browser preview (**FLAC**)
+- **FLAC** in-browser preview
 
 ### Visit **[Matchering main repo][Matchering]** to learn more about it!
 
