@@ -18,6 +18,8 @@ Minimal web application for easy and convenient use of the **[Matchering python 
 
 Follow **[here](https://github.com/sergree/matchering/tree/master#docker-image---the-easiest-way)** for installation steps.
 
+### IMPORTANT: Read the [Keep the Privacy] page if you would like to host our web application publicly!
+
 ## A Coffee
 
 If our application saved your time or money, you may:
@@ -28,3 +30,4 @@ If our application saved your time or money, you may:
 
 [matchering]: https://github.com/sergree/matchering
 [Docker]: https://www.docker.com/
+[Keep the Privacy]: https://github.com/sergree/matchering/wiki/Keep-the-Privacy
