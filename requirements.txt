@@ -1,4 +1,4 @@
-matchering>=2.0.0
+matchering>=2.0.2
 django>=3.0
 djangorestframework>=3.11.0
 django-rq>=2.2.0
