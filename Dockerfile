@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-FROM python:3-slim
+FROM python:3.8-slim
 
 RUN apt update && apt -y install libsndfile1 ffmpeg redis-server supervisor
 
