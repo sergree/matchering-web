@@ -23,7 +23,8 @@ import os
 
 def random_str_func(k):
     def random_str():
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=k))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=k))
+
     return random_str
 
 
@@ -43,8 +44,8 @@ def join(path1, path2):
     return os.path.join(path1, path2)
 
 
-def generate_filename(ext='wav', bit=16, title=None):
+def generate_filename(ext="wav", bit=16, title=None):
     if title:
-        return f'Matchering_{bit}bit_{title}_{random_str_func(4)()}.{ext}'
+        return f"Matchering_{bit}bit_{title}_{random_str_func(4)()}.{ext}"
     else:
-        return f'{random_str_func(16)()}.{ext}'
+        return f"{random_str_func(16)()}.{ext}"

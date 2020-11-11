@@ -33,10 +33,10 @@ class Paths:
     def __init__(self, target_path, target_title):
         self.title = get_valid_filename(target_title)
         self.folder = get_directory(target_path)
-        self.result16 = join(self.folder, generate_filename('wav', 16, self.title))
-        self.result24 = join(self.folder, generate_filename('wav', 24, self.title))
-        self.preview_target = join(self.folder, generate_filename('flac'))
-        self.preview_result = join(self.folder, generate_filename('flac'))
+        self.result16 = join(self.folder, generate_filename("wav", 16, self.title))
+        self.result24 = join(self.folder, generate_filename("wav", 24, self.title))
+        self.preview_target = join(self.folder, generate_filename("flac"))
+        self.preview_result = join(self.folder, generate_filename("flac"))
 
 
 class SessionUpdater:

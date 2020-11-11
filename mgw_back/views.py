@@ -28,7 +28,11 @@ from datetime import timedelta
 
 from matchering_web.settings import MGW_STORE_DATA_FOR_MINUTES
 from mgw_back.models import MGSession, MGFile
-from mgw_back.serializers import MGSessionSerializer, MGSessionDetailSerializer, MGFileSerializer
+from mgw_back.serializers import (
+    MGSessionSerializer,
+    MGSessionDetailSerializer,
+    MGFileSerializer,
+)
 from mgw_back.tasks import process
 from mgw_back.utilities import without_folder
 
@@ -64,13 +68,17 @@ class SessionCreate(APIView):
     def post(self, request, format=None):
         body = json.loads(request.body)
 
-        keep_target = body.get('keep_target', False)
-        keep_reference = body.get('keep_reference', False)
-        previous_token = body.get('previous')
+        keep_target = body.get("keep_target", False)
+        keep_reference = body.get("keep_reference", False)
+        previous_token = body.get("previous")
         if keep_target and keep_reference:
             raise ValidationError
 
-        previous_session = SessionView.get_session(previous_token, raise404=False) if previous_token else None
+        previous_session = (
+            SessionView.get_session(previous_token, raise404=False)
+            if previous_token
+            else None
+        )
         session = MGSession.objects.create()
 
         if previous_session:
@@ -90,7 +98,7 @@ class SessionCreate(APIView):
 
 
 class UploadFile(APIView):
-    parser_classes = (MultiPartParser, )
+    parser_classes = (MultiPartParser,)
 
     def post(self, request, token, file_type, format=None):
         session = SessionView.get_session(token)
@@ -100,7 +108,7 @@ class UploadFile(APIView):
 
         serializer = MGFileSerializer(data=request.data)
         if serializer.is_valid():
-            file = request.FILES['file']
+            file = request.FILES["file"]
             instance = MGFile.objects.create(file=file, title=without_folder(file.name))
             setattr(session, file_type, instance)
 

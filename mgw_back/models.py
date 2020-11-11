@@ -35,12 +35,18 @@ class MGSession(models.Model):
     token = models.CharField(max_length=32, default=random_str_32, unique=True)
 
     target = models.ForeignKey(
-        MGFile, on_delete=models.SET_NULL,
-        blank=True, null=True, related_name='%(class)s_target'
+        MGFile,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="%(class)s_target",
     )
     reference = models.ForeignKey(
-        MGFile, on_delete=models.SET_NULL,
-        blank=True, null=True, related_name='%(class)s_reference'
+        MGFile,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="%(class)s_reference",
     )
 
     result16 = models.FileField(blank=True)
@@ -52,4 +58,6 @@ class MGSession(models.Model):
 
 class MGWarning(models.Model):
     code = models.IntegerField()
-    session = models.ForeignKey(MGSession, related_name='warnings', on_delete=models.CASCADE)
+    session = models.ForeignKey(
+        MGSession, related_name="warnings", on_delete=models.CASCADE
+    )
