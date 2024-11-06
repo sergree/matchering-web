@@ -1,4 +1,4 @@
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://pip.me/sergree)
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://t.me/tribute/app?startapp=de85)
 
 # Matchering WEB
 
@@ -26,7 +26,7 @@ Follow **[here](https://github.com/sergree/matchering/tree/master#docker-image--
 
 If our application saved your time or money, you may:
 
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://pip.me/sergree)
+[![Buy Me A Coffee](https://t.me/tribute/app?startapp=de85)
 
 **Thank you!**
 
